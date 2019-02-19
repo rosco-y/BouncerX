@@ -7,8 +7,44 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid>
-
+        <StackPanel Orientation="Vertical"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+            <TextBlock x:Name="txt_attendants"
+            HorizontalAlignment="Center" 
+            Text="0 Attendants" 
+            FontSize="42"
+            FontFamily="Segoe UI"
+            FontWeight="ExtraLight" />
+            <StackPanel Orientation="Horizontal"
+                Margin="0,20,0,0"
+                HorizontalAlignment="Center">
+                    <Button x:Name="btn_reset"
+                        Content="Reset Attendants"
+                        Width="200"
+                        Height="100"
+                        Margin="5" Click="ResetAttendants" >
+                    <Button.ContentTransitions>
+                        <TransitionCollection>
+                            <AddDeleteThemeTransition/>
+                        </TransitionCollection>
+                    </Button.ContentTransitions>
+                </Button>
+                <Button x:Name="btn_remove"
+                        Content="Remove Attendant"
+                        Width="200"
+                        Height="100"
+                        Margin="5" Click="RemoveAttendant" />
+            </StackPanel>
+            
+            <Button x:Name="btn_add"
+                Content="Add Attendant"
+                Width="410"
+                Height="100"
+                Margin="5,50,5,5" Click="Btn_add_Click" />
+        </StackPanel>
     </Grid>
+
+
 </Page>

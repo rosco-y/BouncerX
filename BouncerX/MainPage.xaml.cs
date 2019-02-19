@@ -22,9 +22,40 @@ namespace BouncerX
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        int _attendantCount = 0;
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            DisplayAttendants();
+        }
+
+
+        void DisplayAttendants()
+        {
+            txt_attendants.Text = $"{_attendantCount} Attendants";
+        }
+
+        void Btn_add_Click(object sender, RoutedEventArgs e)
+        {
+            _attendantCount++;
+            DisplayAttendants();
+        }
+
+        void RemoveAttendant(object sender, RoutedEventArgs e)
+        {
+            if (_attendantCount > 0)
+                _attendantCount--;
+            DisplayAttendants();
+        }
+
+        void ResetAttendants(object sender, RoutedEventArgs e)
+        {
+            _attendantCount = 0;
+            DisplayAttendants();
         }
     }
 }
