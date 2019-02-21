@@ -8,7 +8,8 @@ namespace BouncerX
 {
     class Occasion
     {
-        public int AttendanceCount { get; private set; } = 0;
+        const int INITIALCOUNT = 0;
+        public int AttendanceCount { get; private set; } = INITIALCOUNT;
 
         public void Enter()
         {
@@ -17,7 +18,7 @@ namespace BouncerX
 
         public void Leave()
         {
-            if (AttendanceCount > 0)
+            if (AttendanceCount > INITIALCOUNT)
                 AttendanceCount--;
         }
     }
