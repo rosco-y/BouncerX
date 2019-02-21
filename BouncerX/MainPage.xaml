@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    Loaded="MainPage_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
         <StackPanel Orientation="Vertical"
@@ -13,36 +14,53 @@
         VerticalAlignment="Center">
             <TextBlock x:Name="txt_attendants"
             HorizontalAlignment="Center" 
-            Text="0 Attendants" 
+            Text="{Binding AttendanceCount}"
             FontSize="42"
             FontFamily="Segoe UI"
             FontWeight="ExtraLight" />
             <StackPanel Orientation="Horizontal"
                 Margin="0,20,0,0"
                 HorizontalAlignment="Center">
-                    <Button x:Name="btn_reset"
-                        Content="Reset Attendants"
+                <Button x:Name="btn_reset"
                         Width="200"
                         Height="100"
                         Margin="5" Click="ResetAttendants" >
-                    <Button.ContentTransitions>
-                        <TransitionCollection>
-                            <AddDeleteThemeTransition/>
-                        </TransitionCollection>
-                    </Button.ContentTransitions>
+                    <Button.Content>
+                        <Border Padding = "20"
+                            BorderThickness="0,0,0,5"
+                            BorderBrush="Red">
+                            <TextBlock Text="Reset Attendants"/>
+                        </Border>
+                    </Button.Content>
                 </Button>
                 <Button x:Name="btn_remove"
-                        Content="Remove Attendant"
                         Width="200"
                         Height="100"
-                        Margin="5" Click="RemoveAttendant" />
+                        Margin="5" 
+                        Click="RemoveAttendant">
+                    <Button.Content>
+                        <Border Padding="20"
+                                BorderThickness="0,0,0,5"
+                                BorderBrush="Yellow">
+                            <TextBlock Text="Remove Attendants"/>
+                        </Border>
+                    </Button.Content>
+                </Button>
             </StackPanel>
-            
+
             <Button x:Name="btn_add"
-                Content="Add Attendant"
                 Width="410"
                 Height="100"
-                Margin="5,50,5,5" Click="Btn_add_Click" />
+                Margin="5,50,5,5" 
+                    Click="Btn_add_Click">
+                <Button.Content>
+                    <Border Padding="20"
+                            BorderThickness="0,0,0,5"
+                            BorderBrush="Green">
+                        <TextBlock Text="Add Attendant"/>
+                    </Border>
+                </Button.Content>
+            </Button>
         </StackPanel>
     </Grid>
 

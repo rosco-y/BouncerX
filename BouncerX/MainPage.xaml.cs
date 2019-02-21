@@ -22,10 +22,12 @@ namespace BouncerX
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        int _attendantCount = 0;
+        Occasion _occasion;
+
         public MainPage()
         {
             this.InitializeComponent();
+            _occasion = new Occasion();
         }
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -36,25 +38,25 @@ namespace BouncerX
 
         void DisplayAttendants()
         {
-            txt_attendants.Text = $"{_attendantCount} Attendants";
+            txt_attendants.DataContext = null;
+            txt_attendants.DataContext = _occasion;
         }
 
         void Btn_add_Click(object sender, RoutedEventArgs e)
         {
-            _attendantCount++;
+            _occasion.Enter();
             DisplayAttendants();
         }
 
         void RemoveAttendant(object sender, RoutedEventArgs e)
         {
-            if (_attendantCount > 0)
-                _attendantCount--;
+            _occasion.Leave();
             DisplayAttendants();
         }
 
         void ResetAttendants(object sender, RoutedEventArgs e)
         {
-            _attendantCount = 0;
+            _occasion = new Occasion();
             DisplayAttendants();
         }
     }
