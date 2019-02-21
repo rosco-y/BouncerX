@@ -8,13 +8,17 @@
     mc:Ignorable="d"
     Loaded="MainPage_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+    <local:OccasionConverter x:Key="attendant_ext"/>
+    </Page.Resources>
     <Grid>
         <StackPanel Orientation="Vertical"
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
             <TextBlock x:Name="txt_attendants"
             HorizontalAlignment="Center" 
-            Text="{Binding AttendanceCount}"
+            Text="{Binding Converter={StaticResource attendant_ext},
+                ConverterParameter='number of attendants'}"
             FontSize="42"
             FontFamily="Segoe UI"
             FontWeight="ExtraLight" />
